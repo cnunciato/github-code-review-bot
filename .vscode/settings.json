@@ -1,0 +1,13 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+
+    "explorer.excludeGitIgnore": true,
+
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+
+    "prettier.configPath": "./prettier.config.json",
+    "prettier.documentSelectors": ["**/*.{ts,js,cjs,mjs,json,md,}"]
+}

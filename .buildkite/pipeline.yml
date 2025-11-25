@@ -1,0 +1,23 @@
+secrets:
+  GITHUB_TOKEN: GITHUB_TOKEN
+  BUILDKITE_API_TOKEN: API_TOKEN_BUILDKITE
+
+env:
+  GITHUB_CLI_VERSION: "2.83.0"
+  BUILDKITE_MCP_SERVER_VERSION: "0.7.3"
+  TRIGGER_ON_LABEL: "buildkite-review"
+  MODEL_PROVIDER: "anthropic"
+
+steps:
+  - label: ":node: Generate the pipeline"
+    command: |
+
+      if [[ "${BUILDKITE_SOURCE:-}" != "webhook" || -z "${BUILDKITE_TRIGGER_ID:-}" ]]; then
+        echo "Not a webhook trigger -- exiting."
+        exit 0
+      fi
+
+      # Generate and upload the pipeline to handle the webhook.
+      echo "--- :webhook: Run the webhook handler"
+      npm install && npm run build
+      node dist/handler

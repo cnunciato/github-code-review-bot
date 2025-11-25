@@ -1,0 +1,10 @@
+name: "Buildkite Agentic Example"
+description: "A Buildkite pipeline that uses Claude Code and Buildkite model providers to review GitHub pull requests."
+emoji: ":buildkite:"
+languages:
+  - "TypeScript"
+
+steps:
+  - label: ":pipeline:"
+    command: "buildkite-agent pipeline upload"
+    depends_on: []
